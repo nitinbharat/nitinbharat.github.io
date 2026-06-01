@@ -84,10 +84,6 @@
         Quiescent means "at rest" or "inactive state". It refers to a condition where a system is powered ON but not processing any input signal.
     </p>
 
-    <p>
-        In electronics, quiescent refers to the DC steady state of a circuit when no AC signal is applied.
-    </p>
-
     <h2>Quiescent in LDO / Linear Regulators</h2>
 
     <p>
@@ -107,33 +103,28 @@
 
     <div class="divider"></div>
 
-    <h2>Key Differences Between BJT and MOSFET Q-Points</h2>
 
     <table>
         <tr>
             <th>Feature</th>
             <th>BJT Q-Point</th>
-            <th>MOSFET Q-Point</th>
+           
         </tr>
         <tr>
             <td>Control Parameter</td>
             <td>Base Current (IB)</td>
-            <td>Gate-to-Source Voltage (VGS)</td>
         </tr>
         <tr>
             <td>Key DC Current</td>
             <td>Collector Current (IC)</td>
-            <td>Drain Current (ID)</td>
         </tr>
         <tr>
             <td>Key DC Voltage</td>
             <td>Collector-Emitter Voltage (VCE)</td>
-            <td>Drain-to-Source Voltage (VDS)</td>
         </tr>
         <tr>
             <td>Linear Region</td>
             <td>Active Region</td>
-            <td>Saturation Region</td>
         </tr>
     </table>
 
@@ -149,20 +140,6 @@
         <li>VCE = VCC - (IC × RC)</li>
         <li>Ideal VCE is VCC / 2 for maximum signal swing.</li>
         <li>Q-point stability is important because β varies with temperature.</li>
-    </ul>
-
-    <h2>MOSFET Q-Point Parameters</h2>
-
-    <p>
-        For MOSFET amplifiers, the Q-point is set in the Saturation Region.
-    </p>
-
-    <ul>
-        <li>The Q-point is defined by (VDS, ID).</li>
-        <li>ID = (1/2) μn Cox (W/L) (VGS - Vth)²</li>
-        <li>VDS = VDD - (ID × RD)</li>
-        <li>Condition: VDS > (VGS - Vth)</li>
-        <li>Gate current is approximately zero, making biasing simpler than BJT.</li>
     </ul>
 
     <h2>Why Q-Point Biasing Matters</h2>

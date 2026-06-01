@@ -9,8 +9,34 @@
 
 <h1>Q-Point (Quiescent Point) in Transistor Circuits</h1>
 
+<h2>Meaning of Quiescent</h2>
+
 <p>
-The quiescent point (Q-point) is the steady-state DC operating point of a transistor circuit when no AC input signal is applied. It sets the baseline DC voltage and current levels to ensure proper operation.
+<strong>Quiescent</strong> means "at rest" or "inactive state" in English.
+It refers to a condition where a system is powered ON but not processing any input signal.
+</p>
+
+<p>
+In electronics, quiescent means the DC steady state of a circuit when no AC signal is applied.
+</p>
+
+<h2>Quiescent in LDO / Linear Regulators</h2>
+
+<p>
+In an <strong>LDO (Low Dropout Regulator)</strong> or linear regulator,
+<strong>quiescent current (Iq)</strong> is the small current consumed by the regulator itself
+to operate internal circuits, even when there is no load or very small load.
+</p>
+
+<ul>
+    <li><strong>LM / LDO meaning:</strong> Quiescent current is the standby current drawn by the regulator IC.</li>
+    <li><strong>Importance:</strong> Lower quiescent current = better battery life in portable devices.</li>
+</ul>
+
+<h2>Q-Point (Quiescent Point) in Transistor Circuits</h2>
+
+<p>
+The quiescent point (Q-point) is the steady-state DC operating point of a transistor circuit when no AC input signal is applied.
 </p>
 
 <h2>Key Differences Between BJT and MOSFET Q-Points</h2>
@@ -27,12 +53,12 @@ The quiescent point (Q-point) is the steady-state DC operating point of a transi
         <td>Gate-to-Source Voltage (VGS)</td>
     </tr>
     <tr>
-        <td>Key Current</td>
+        <td>Current</td>
         <td>Collector Current (IC)</td>
         <td>Drain Current (ID)</td>
     </tr>
     <tr>
-        <td>Key Voltage</td>
+        <td>Voltage</td>
         <td>VCE</td>
         <td>VDS</td>
     </tr>
@@ -40,29 +66,35 @@ The quiescent point (Q-point) is the steady-state DC operating point of a transi
 
 <h2>BJT Q-Point</h2>
 
-<ul>
-    <li>Variables: VCE, IC</li>
-</ul>
-
 <p>IC = β × IB</p>
 <p>VCE = VCC − (IC × RC)</p>
 
 <ul>
     <li>Ideal: VCE ≈ VCC / 2</li>
-    <li>Used in Active Region</li>
+    <li>Region: Active Region</li>
 </ul>
 
 <h2>MOSFET Q-Point</h2>
-
-<ul>
-    <li>Variables: VDS, ID</li>
-</ul>
 
 <p>ID = ½ μn Cox (W/L) (VGS − Vth)²</p>
 <p>VDS = VDD − (ID × RD)</p>
 
 <ul>
     <li>Condition: VDS > (VGS − Vth)</li>
+    <li>Gate current ≈ 0</li>
+</ul>
+
+<h2>Why Q-Point Matters</h2>
+
+<ul>
+    <li>Prevents distortion</li>
+    <li>Controls power consumption</li>
+</ul>
+
+<p><a href="index.html">Back to Home</a></p>
+
+</body>
+</html>    <li>Condition: VDS > (VGS − Vth)</li>
     <li>Gate current ≈ 0</li>
 </ul>
 

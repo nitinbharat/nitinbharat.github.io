@@ -1,111 +1,178 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Q-Point in BJT and MOSFET</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quiescent - Explanation</title>
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #ffffff;
+        color: #000000;
+        margin: 0;
+        padding: 0;
+        line-height: 1.6;
+    }
+
+    .container {
+        max-width: 900px;
+        margin: 40px auto;
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 28px;
+        margin-bottom: 10px;
+    }
+
+    h2 {
+        font-size: 20px;
+        margin-top: 30px;
+        border-top: 1px solid #ddd;
+        padding-top: 20px;
+    }
+
+    h3 {
+        font-size: 16px;
+        margin-top: 15px;
+    }
+
+    p {
+        margin: 10px 0;
+    }
+
+    ul {
+        margin: 10px 0 10px 20px;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 15px;
+    }
+
+    table, th, td {
+        border: 1px solid #ccc;
+    }
+
+    th, td {
+        padding: 8px;
+        text-align: left;
+    }
+
+    pre {
+        background: #f7f7f7;
+        padding: 10px;
+        overflow-x: auto;
+        border: 1px solid #ddd;
+    }
+
+    .divider {
+        border-top: 1px solid #ddd;
+        margin: 25px 0;
+    }
+</style>
 </head>
+
 <body>
+<div class="container">
 
-<h1>Q-Point (Quiescent Point) in Transistor Circuits</h1>
+    <h1>Meaning of Quiescent</h1>
 
-<h2>Meaning of Quiescent</h2>
+    <p>
+        Quiescent means "at rest" or "inactive state". It refers to a condition where a system is powered ON but not processing any input signal.
+    </p>
 
-<p>
-<strong>Quiescent</strong> means "at rest" or "inactive state" in English.
-It refers to a condition where a system is powered ON but not processing any input signal.
-</p>
+    <p>
+        In electronics, quiescent refers to the DC steady state of a circuit when no AC signal is applied.
+    </p>
 
-<p>
-In electronics, quiescent means the DC steady state of a circuit when no AC signal is applied.
-</p>
+    <h2>Quiescent in LDO / Linear Regulators</h2>
 
-<h2>Quiescent in LDO / Linear Regulators</h2>
+    <p>
+        In an LDO (Low Dropout Regulator) or linear regulator, quiescent current (Iq) is the small current consumed by the regulator itself to operate internal circuits, even when there is no load or very small load.
+    </p>
 
-<p>
-In an <strong>LDO (Low Dropout Regulator)</strong> or linear regulator,
-<strong>quiescent current (Iq)</strong> is the small current consumed by the regulator itself
-to operate internal circuits, even when there is no load or very small load.
-</p>
+    <ul>
+        <li>Quiescent current is the standby current drawn by the regulator IC.</li>
+        <li>Lower quiescent current leads to better battery life in portable devices.</li>
+    </ul>
 
-<ul>
-    <li><strong>LM / LDO meaning:</strong> Quiescent current is the standby current drawn by the regulator IC.</li>
-    <li><strong>Importance:</strong> Lower quiescent current = better battery life in portable devices.</li>
-</ul>
+    <h2>Quiescent Point (Q-Point)</h2>
 
-<h2>Q-Point (Quiescent Point) in Transistor Circuits</h2>
+    <p>
+        The quiescent point (Q-point) is the steady-state DC operating point of a transistor circuit when no AC input signal is applied. It sets the baseline DC voltage and current levels to ensure proper amplification.
+    </p>
 
-<p>
-The quiescent point (Q-point) is the steady-state DC operating point of a transistor circuit when no AC input signal is applied.
-</p>
+    <div class="divider"></div>
 
-<h2>Key Differences Between BJT and MOSFET Q-Points</h2>
+    <h2>Key Differences Between BJT and MOSFET Q-Points</h2>
 
-<table border="1">
-    <tr>
-        <th>Feature</th>
-        <th>BJT Q-Point</th>
-        <th>MOSFET Q-Point</th>
-    </tr>
-    <tr>
-        <td>Control Parameter</td>
-        <td>Base Current (IB)</td>
-        <td>Gate-to-Source Voltage (VGS)</td>
-    </tr>
-    <tr>
-        <td>Current</td>
-        <td>Collector Current (IC)</td>
-        <td>Drain Current (ID)</td>
-    </tr>
-    <tr>
-        <td>Voltage</td>
-        <td>VCE</td>
-        <td>VDS</td>
-    </tr>
-</table>
+    <table>
+        <tr>
+            <th>Feature</th>
+            <th>BJT Q-Point</th>
+            <th>MOSFET Q-Point</th>
+        </tr>
+        <tr>
+            <td>Control Parameter</td>
+            <td>Base Current (IB)</td>
+            <td>Gate-to-Source Voltage (VGS)</td>
+        </tr>
+        <tr>
+            <td>Key DC Current</td>
+            <td>Collector Current (IC)</td>
+            <td>Drain Current (ID)</td>
+        </tr>
+        <tr>
+            <td>Key DC Voltage</td>
+            <td>Collector-Emitter Voltage (VCE)</td>
+            <td>Drain-to-Source Voltage (VDS)</td>
+        </tr>
+        <tr>
+            <td>Linear Region</td>
+            <td>Active Region</td>
+            <td>Saturation Region</td>
+        </tr>
+    </table>
 
-<h2>BJT Q-Point</h2>
+    <h2>BJT Q-Point Parameters</h2>
 
-<p>IC = β × IB</p>
-<p>VCE = VCC − (IC × RC)</p>
+    <p>
+        For a BJT amplifier, the Q-point must be in the Active Region for distortion-free operation.
+    </p>
 
-<ul>
-    <li>Ideal: VCE ≈ VCC / 2</li>
-    <li>Region: Active Region</li>
-</ul>
+    <ul>
+        <li>The Q-point is defined by (VCE, IC).</li>
+        <li>IC = β × IB</li>
+        <li>VCE = VCC - (IC × RC)</li>
+        <li>Ideal VCE is VCC / 2 for maximum signal swing.</li>
+        <li>Q-point stability is important because β varies with temperature.</li>
+    </ul>
 
-<h2>MOSFET Q-Point</h2>
+    <h2>MOSFET Q-Point Parameters</h2>
 
-<p>ID = ½ μn Cox (W/L) (VGS − Vth)²</p>
-<p>VDS = VDD − (ID × RD)</p>
+    <p>
+        For MOSFET amplifiers, the Q-point is set in the Saturation Region.
+    </p>
 
-<ul>
-    <li>Condition: VDS > (VGS − Vth)</li>
-    <li>Gate current ≈ 0</li>
-</ul>
+    <ul>
+        <li>The Q-point is defined by (VDS, ID).</li>
+        <li>ID = (1/2) μn Cox (W/L) (VGS - Vth)²</li>
+        <li>VDS = VDD - (ID × RD)</li>
+        <li>Condition: VDS > (VGS - Vth)</li>
+        <li>Gate current is approximately zero, making biasing simpler than BJT.</li>
+    </ul>
 
-<h2>Why Q-Point Matters</h2>
+    <h2>Why Q-Point Biasing Matters</h2>
 
-<ul>
-    <li>Prevents distortion</li>
-    <li>Controls power consumption</li>
-</ul>
+    <ul>
+        <li>Prevents distortion in amplified signals.</li>
+        <li>Ensures correct operation region.</li>
+        <li>Controls idle power consumption.</li>
+    </ul>
 
-<p><a href="index.html">Back to Home</a></p>
-
-</body>
-</html>    <li>Condition: VDS > (VGS − Vth)</li>
-    <li>Gate current ≈ 0</li>
-</ul>
-
-<h2>Why Q-Point Matters</h2>
-
-<ul>
-    <li>Prevents distortion</li>
-    <li>Controls power consumption</li>
-</ul>
-
-<p><a href="index.html">Back to Home</a></p>
-
+</div>
 </body>
 </html>

@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Q-Point in BJT and MOSFET</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 1000px;
+            margin: auto;
+            padding: 20px;
+            line-height: 1.6;
+            background-color: #f8f9fa;
+        }
+
+        h1, h2 {
+            color: #0d6efd;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: white;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+        }
+
+        th {
+            background-color: #0d6efd;
+            color: white;
+        }
+
+        .formula {
+            background: #eef5ff;
+            padding: 10px;
+            margin: 10px 0;
+            border-left: 4px solid #0d6efd;
+            font-family: "Courier New", monospace;
+        }
+
+        .home-link {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 15px;
+            background: #0d6efd;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        .home-link:hover {
+            background: #084298;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Q-Point (Quiescent Point) in Transistor Circuits</h1>
+
+    <p>
+        The <strong>quiescent point (Q-point)</strong> is the steady-state DC operating
+        point of a transistor circuit when no AC input signal is applied. It sets
+        the baseline DC voltage and current levels to ensure the transistor operates
+        in the correct region for amplification.
+    </p>
+
+    <h2>Key Differences Between BJT and MOSFET Q-Points</h2>
+
+    <table>
+        <tr>
+            <th>Feature</th>
+            <th>BJT Q-Point</th>
+            <th>MOSFET Q-Point</th>
+        </tr>
+        <tr>
+            <td>Control Parameter</td>
+            <td>Base Current (IB)</td>
+            <td>Gate-to-Source Voltage (VGS)</td>
+        </tr>
+        <tr>
+            <td>Key DC Currents</td>
+            <td>Collector Current (IC)</td>
+            <td>Drain Current (ID)</td>
+        </tr>
+        <tr>
+            <td>Key DC Voltages</td>
+            <td>Collector-Emitter Voltage (VCE)</td>
+            <td>Drain-to-Source Voltage (VDS)</td>
+        </tr>
+        <tr>
+            <td>Target Linear Zone</td>
+            <td>Active Region</td>
+            <td>Saturation Region</td>
+        </tr>
+    </table>
+
+    <h2>BJT Q-Point Parameters</h2>
+
+    <p>
+        For a BJT to amplify an AC signal without distortion, the Q-point must be
+        established in the <strong>Active Region</strong>.
+    </p>
+
+    <ul>
+        <li><strong>Variables:</strong> (VCE, IC)</li>
+    </ul>
+
+    <div class="formula">
+        IC = β × IB
+    </div>
+
+    <div class="formula">
+        VCE = VCC − (IC × RC)
+    </div>
+
+    <ul>
+        <li>
+            <strong>Target Placement:</strong> Ideally, VCE = VCC / 2 for maximum
+            symmetrical signal swing.
+        </li>
+        <li>
+            <strong>Risk:</strong> Beta (β) changes with temperature, causing Q-point
+            drift and possible thermal runaway.
+        </li>
+    </ul>
+
+    <h2>MOSFET Q-Point Parameters</h2>
+
+    <p>
+        For a MOSFET amplifier, the Q-point must be established in the
+        <strong>Saturation Region</strong>.
+    </p>
+
+    <ul>
+        <li><strong>Variables:</strong> (VDS, ID)</li>
+    </ul>
+
+    <div class="formula">
+        ID = ½ μn Cox (W/L) (VGS − Vth)²
+    </div>
+
+    <div class="formula">
+        VDS = VDD − (ID × RD)
+    </div>
+
+    <ul>
+        <li>
+            <strong>Condition for Saturation:</strong>
+            VDS > (VGS − Vth)
+        </li>
+        <li>
+            <strong>Advantage:</strong>
+            Gate current IG ≈ 0, making biasing simpler than BJT circuits.
+        </li>
+    </ul>
+
+    <h2>Why Q-Point Biasing Matters</h2>
+
+    <ul>
+        <li>
+            <strong>Prevents Distortion:</strong>
+            Keeps the signal from clipping at cutoff or saturation.
+        </li>
+        <li>
+            <strong>Controls Power Consumption:</strong>
+            Determines the idle power dissipated by the circuit.
+        </li>
+    </ul>
+
+    <a href="index.html" class="home-link">← Back to Home</a>
+
+</body>
+</html>
